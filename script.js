@@ -83,7 +83,13 @@ const locations = [
         name: "kill monster",
         "button text" : ["Go to town square", "Go to town square", "Go to town square"],
         "button functions":[goTown, goTown, goTown],
-        text: "The monster screams 'Arg!' as it dies. You gain experience points and find gold."
+        text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
+    },
+    {
+        name: "lose",
+        "button text" : ["Replay?", "Replay?", "Replay?"],
+        "button functions" : [restart, restart, restart],
+        text: "You die. 💀"
     }
 ]
 
@@ -93,6 +99,10 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function update(location){
+
+    //to hide monster stats whenever player goes to a new location
+    monsterStats.style.display = "none";
+
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
